@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/parentLayout">
+
+    <!--Create Image View for Android pic-->
+    <ImageView
+        android:id="@+id/android_icon"
+        android:layout_width="171dp"
+        android:layout_height="109dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="50dp"
+        android:src="@mipmap/ic_launcher_android" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/android_icon"
+        android:layout_marginTop="80dp"
+        android:id="@+id/btnPickImg"
+        android:text="Pick Image"/>
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/android_icon"
+        android:hint="Last Name"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:id="@+id/edtLastName"/>
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtLastName"
+        android:hint="Name"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:id="@+id/edtName"
+        />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtName"
+        android:hint="Email"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:id="@+id/edtEmail"
+        />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtEmail"
+        android:hint="Password"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPassword"
+        android:id="@+id/edtPassword"
+        />
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtPassword"
+        android:hint="Re-Enter Password"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:inputType="textPassword"
+        android:id="@+id/edtPswdReenter"
+        />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reEnterrb"
+        android:layout_marginLeft="180dp"
+        android:layout_below="@+id/edtPassword"
+        android:layout_marginTop="7dp"
+        />
+
+
+
+
+    <TextView
+        android:layout_width="143dp"
+        android:layout_height="135dp"
+        android:layout_below="@id/btnPickImg"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="56dp"
+        android:layout_toRightOf="@+id/edtName"
+        android:text="These is our lisence agreement. You can share this app
+anywhere that you want and use it however you want. Just remember to enjoy"
+        android:id="@+id/textLicense"/>
+    <!--Gender TextView-->
+    <TextView
+        android:id="@+id/Gender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtPswdReenter"
+        android:layout_marginLeft="-195dp"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/edtName"
+        android:text="Gender:" />
+
+    <!--Countries TextView-->
+    <TextView
+        android:id="@+id/Country"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rdgGender"
+        android:layout_marginLeft="-195dp"
+        android:layout_marginTop="21dp"
+        android:layout_toRightOf="@+id/edtName"
+        android:text="Country:" />
+
+    <!--I agree Checkbox-->
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I Agree"
+        android:layout_below="@+id/textLicense"
+        android:layout_toRightOf="@+id/edtPswdReenter"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="55dp"
+        android:id="@+id/iAgreeBox"/>
+
+    <!--RadioGroup for Gender-->
+    <RadioGroup
+        android:id="@+id/rdgGender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Gender"
+        android:layout_marginTop="-3dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbMale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="Male"
+            android:textSize="14dp"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/rbFemale"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="Female"
+            android:textSize="14dp" />
+
+        <RadioButton
+            android:id="@+id/rbOther"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:text="Other"
+            android:textSize="14dp" />
+
+    </RadioGroup>
+
+
+
+
+
+
+</RelativeLayout>

@@ -2,10 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/parentLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:id="@+id/parentLayout">
+    tools:context=".MainActivity">
 
     <!--Create Image View for Android pic-->
     <ImageView
@@ -15,77 +15,79 @@
         android:layout_marginLeft="70dp"
         android:layout_marginTop="50dp"
         android:src="@mipmap/ic_launcher_android" />
+
+    <!--Button for "Pick image"-->
     <Button
+        android:id="@+id/btnPickImg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/android_icon"
         android:layout_marginTop="80dp"
-        android:id="@+id/btnPickImg"
-        android:text="Pick Image"/>
+        android:layout_toRightOf="@+id/android_icon"
+        android:text="Pick Image" />
+
+    <!--Create EditTexts for fields to fill(name,email,password)-->
     <EditText
+        android:id="@+id/edtLastName"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/android_icon"
-        android:hint="Last Name"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:inputType="text"
-        android:id="@+id/edtLastName"/>
+        android:layout_marginTop="10dp"
+        android:hint="Last Name"
+        android:inputType="text" />
 
     <EditText
+        android:id="@+id/edtName"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtLastName"
-        android:hint="Name"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:inputType="text"
-        android:id="@+id/edtName"
-        />
+        android:layout_marginTop="10dp"
+        android:hint="Name"
+        android:inputType="text" />
+
     <EditText
+        android:id="@+id/edtEmail"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtName"
-        android:hint="Email"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:inputType="text"
-        android:id="@+id/edtEmail"
-        />
+        android:layout_marginTop="10dp"
+        android:hint="Email"
+        android:inputType="text" />
+
     <EditText
+        android:id="@+id/edtPassword"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtEmail"
-        android:hint="Password"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:inputType="textPassword"
-        android:id="@+id/edtPassword"
-        />
+        android:layout_marginTop="10dp"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
     <EditText
+        android:id="@+id/edtPswdReenter"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edtPassword"
-        android:hint="Re-Enter Password"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:inputType="textPassword"
-        android:id="@+id/edtPswdReenter"
-        />
+        android:layout_marginTop="10dp"
+        android:hint="Re-Enter Password"
+        android:inputType="textPassword" />
 
+    <!--RadioButton which changes visibility as  user re-enters password-->
     <RadioButton
+        android:id="@+id/reEnterrb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/reEnterrb"
-        android:layout_marginLeft="180dp"
         android:layout_below="@+id/edtPassword"
-        android:layout_marginTop="7dp"
-        />
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="7dp" />
 
-
-
-
+    <!--License TextView-->
     <TextView
+        android:id="@+id/textLicense"
         android:layout_width="143dp"
         android:layout_height="135dp"
         android:layout_below="@id/btnPickImg"
@@ -93,8 +95,8 @@
         android:layout_marginTop="56dp"
         android:layout_toRightOf="@+id/edtName"
         android:text="These is our lisence agreement. You can share this app
-anywhere that you want and use it however you want. Just remember to enjoy"
-        android:id="@+id/textLicense"/>
+anywhere that you want and use it however you want. Just remember to enjoy" />
+
     <!--Gender TextView-->
     <TextView
         android:id="@+id/Gender"
@@ -106,7 +108,7 @@ anywhere that you want and use it however you want. Just remember to enjoy"
         android:layout_toRightOf="@+id/edtName"
         android:text="Gender:" />
 
-    <!--Countries TextView-->
+    <!--"Country" TextView-->
     <TextView
         android:id="@+id/Country"
         android:layout_width="wrap_content"
@@ -119,16 +121,16 @@ anywhere that you want and use it however you want. Just remember to enjoy"
 
     <!--I agree Checkbox-->
     <CheckBox
+        android:id="@+id/iAgreeBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I Agree"
         android:layout_below="@+id/textLicense"
-        android:layout_toRightOf="@+id/edtPswdReenter"
-        android:layout_marginTop="25dp"
         android:layout_marginLeft="55dp"
-        android:id="@+id/iAgreeBox"/>
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@+id/edtPswdReenter"
+        android:text="I Agree" />
 
-    <!--RadioGroup for Gender-->
+    <!--RadioGroup for Gender Radio Buttons-->
     <RadioGroup
         android:id="@+id/rdgGender"
         android:layout_width="wrap_content"
@@ -143,11 +145,11 @@ anywhere that you want and use it however you want. Just remember to enjoy"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
+            android:checked="true"
             android:scaleX="0.8"
             android:scaleY="0.8"
             android:text="Male"
-            android:textSize="14dp"
-            android:checked="true"/>
+            android:textSize="14dp" />
 
         <RadioButton
             android:id="@+id/rbFemale"
@@ -173,9 +175,35 @@ anywhere that you want and use it however you want. Just remember to enjoy"
 
     </RadioGroup>
 
+    <Spinner
+        android:id="@+id/spinnerCountries"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rdgGender"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="21dp"
+        android:layout_toRightOf="@+id/Country" />
 
+    <!--Register button-->
+    <Button
+        android:id="@+id/Register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spinnerCountries"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="Register" />
 
-
-
+    <!--Button to open another acitivity to show list of Registrants-->
+    <Button
+        android:id="@+id/allList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iAgreeBox"
+        android:layout_alignLeft="@id/iAgreeBox"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/teal_700"
+        android:text="Show all list"
+        android:textSize="10sp" />
 
 </RelativeLayout>

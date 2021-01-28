@@ -100,6 +100,36 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Pick Image is Selected", Toast.LENGTH_SHORT).show();
             }
         });
+        /*The RadioBtn Reenter passwod changes to Checked when the user starts re-typing the password*/
+        reenterPswd.addTextChangedListener(new GenericTextWatcher(reenterPswd));
+
+        /*CheckBox "I Agree" is set to true if the user chooses to Agree and checks the CheckBox*/
+        iAgree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    iAgree.setChecked(true);
+                }else{
+                    iAgree.setChecked(false);
+                }
+            }
+        });
+
+        /*Register applicant if all fields are filled correctly, or show the error message and
+         * wait until they fill the form correctly.After registering, show Snackbar that the Applicant is
+         * successfully registered, and give the user option to register another user*/
+        Register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(checkFields()){
+                   // showSnackbar();   show SnackBar if fields are filled and meet requirements
+                    save(lastName.getText().toString(),name.getText().toString(),email.getText().toString(),Gender,countriesSpinner.getSelectedItem().toString());
+                }else {
+                    //alert(errorMessage);   else we will show alert message
+                }
+            }
+        });
+
 
     }
     /*Initialize elements*/
@@ -142,4 +172,72 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+    /*Check if all fields are entered correctly*/
+    public boolean checkFields(){
+        if(lastName.getText().toString().trim().length()==0){
+            errorMessage="Please enter your last name";
+            return false;
+        }else if(name.getText().toString().trim().length()==0){
+            errorMessage="Please enter your name";
+            return false;
+        }else if(email.getText().toString().trim().length()==0){
+            errorMessage="Please enter your email";
+            return false;
+        }else if(password.getText().toString().trim().length()==0){
+            errorMessage="Please enter your password";
+            return false;
+        }else if(reenterPswd.getText().toString().trim().length()==0){
+            errorMessage="Please reenter your password";
+            return false;
+        }else if(name.getText().toString().contains(" ")){
+            errorMessage="Name field should not contain whitespace";
+            return false;
+        }else if(email.getText().toString().contains(" ")){
+            errorMessage="Email field should not contain whitespace";
+            return false;
+        }else if(password.getText().toString().contains(" ")){
+            errorMessage="Password field should not contain whitespace";
+            return false;
+        }else if(lastName.getText().toString().contains(" ")){
+            errorMessage="Last name field should not contain whitespace";
+            return false;
+        }else if(!email.getText().toString().contains("@") ){
+            errorMessage="Please make sure email is in the format ...@...";
+            return false;
+        }else if(!password.getText().toString().equals(reenterPswd.getText().toString())){
+            errorMessage="Please make sure original password matches to the one you re-enter";
+            return false;
+        }else if(iAgree.isChecked()==false){
+            errorMessage="Please read the terms and check 'I agree' checkbox";
+            return false;
+        }return true;
+    }
+
+    /*Save data to the internal folder*/
+    public void save(String lastName,String name, String email, String Gender, String Country){
+        String info=lastName+ " " + name+" " + email + " "  + " " + Gender + " " + Country +"\n";
+        FileOutputStream fos = null;
+
+        try {
+            fos=openFileOutput(FILE_NAME,MODE_APPEND);
+            fos.write(info.getBytes());
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+
 }

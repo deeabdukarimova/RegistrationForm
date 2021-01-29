@@ -122,11 +122,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(checkFields()){
-                   // showSnackbar();   show SnackBar if fields are filled and meet requirements
+                    showSnackbar();
                     save(lastName.getText().toString(),name.getText().toString(),email.getText().toString(),Gender,countriesSpinner.getSelectedItem().toString());
                 }else {
-                    //alert(errorMessage);   else we will show alert message
+                    alert(errorMessage);
                 }
+            }
+        });
+
+        /*Direct user to new screen if they wish to view the list of all Registered Applicants*/
+        allList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAllList();
             }
         });
 
@@ -236,6 +244,44 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    /*Create alert if user input the information incorrectly and show where exactly they did wrong by
+     * displaying particular error message*/
+    public void alert(String message){
+        AlertDialog alert=new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Alert Message!")
+                .setMessage(message)
+                .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(getIntent());
+                    }
+                })
+                .setNegativeButton("I will try later. Exit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                }).show();}
+
+    /*Create Snackbar and show this message once user successfully registers the applicant*/
+    public void showSnackbar() {
+        Snackbar.make(parent, "Registered", BaseTransientBottomBar.LENGTH_INDEFINITE).setAction("Register " +
+                "another applicant", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+                startActivity(getIntent());
+            }
+        }).setTextColor(Color.YELLOW).setActionTextColor(Color.GRAY).show();
+    }
+    /*Open another activity with list of all registrants*/
+    public void openAllList(){
+        Intent intent=new Intent(this,fullList.class);
+        startActivity(intent);
     }
 
 

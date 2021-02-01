@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    app:cardCornerRadius="10dp"
+    android:elevation="10dp"
+    android:layout_margin="10dp"
+    android:id="@+id/parentList">
+
+    <!--This students_list layout file will hold the view in a nice format.
+     It will be used in the ViewHolder method when Recycler View Adapter will be created-->
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:padding="5dp">
+       <TextView
+           android:layout_width="135dp"
+           android:layout_height="wrap_content"
+           android:text="Student Last Name"
+           android:id="@+id/txtLastName"
+           android:layout_centerHorizontal="true"
+           android:textStyle="bold"
+           android:layout_marginTop="7dp"/>
+       <TextView
+           android:layout_width="135dp"
+           android:layout_height="wrap_content"
+           android:text="Student Name"
+           android:layout_below="@+id/txtLastName"
+           android:id="@+id/txtName"
+           android:layout_centerHorizontal="true"
+           android:textStyle="bold"
+           android:layout_marginTop="7dp"
+           android:layout_marginStart="5dp"/>
+       <TextView
+           android:layout_width="135dp"
+           android:layout_height="wrap_content"
+           android:text="Student Email"
+           android:id="@+id/txtEmail"
+           android:layout_below="@id/txtName"
+           android:layout_centerHorizontal="true"
+           android:textStyle="italic"
+           android:layout_marginTop="7dp"
+           android:layout_marginStart="5dp"/>
+       <TextView
+           android:layout_width="135dp"
+           android:layout_height="wrap_content"
+           android:text="Student Gender"
+           android:layout_below="@+id/txtEmail"
+           android:id="@+id/txtGender"
+           android:layout_centerHorizontal="true"
+           android:textStyle="italic"
+           android:layout_marginTop="7dp"
+           android:layout_marginStart="5dp"/>
+       <TextView
+           android:layout_width="135dp"
+           android:layout_height="wrap_content"
+           android:text="Student country"
+           android:layout_below="@+id/txtGender"
+           android:id="@+id/txtCountry"
+           android:layout_centerHorizontal="true"
+           android:textStyle="italic"
+           android:layout_marginTop="7dp"
+           android:layout_marginStart="5dp"/>
+
+   </RelativeLayout>
+</androidx.cardview.widget.CardView>

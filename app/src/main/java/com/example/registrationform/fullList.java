@@ -47,6 +47,14 @@ public class fullList extends AppCompatActivity {
                 stringBuffer.append(lines+"\n");
                 data.add(lines+"\n");
             }
+            for(int i=0;i<data.size();i++){
+                String [] temp=data.get(i).split("\\s+");
+                for(int j=0;j<temp.length;j++){
+                    students.add(new StudentsContact(temp[j],temp[j+1],temp[j+2],temp[j+4],temp[j+3]));
+                }
+            }
+
+
         } catch(FileNotFoundException e){
             e.printStackTrace();
         }catch (IOException e){

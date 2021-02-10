@@ -2,6 +2,7 @@ package com.example.registrationform;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.solver.ArrayLinkedVariables;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
@@ -60,6 +61,11 @@ public class fullList extends AppCompatActivity {
         }catch (IOException e){
             e.printStackTrace();
         }
+        /*pass data to Recycler View*/
+        StudentsRecViewAdapter adapter=new StudentsRecViewAdapter(this);
+        adapter.setStudents(students);
+        studentsRecView.setAdapter(adapter);
+        studentsRecView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
 
 
 

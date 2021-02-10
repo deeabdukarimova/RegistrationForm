@@ -51,6 +51,11 @@ public class StudentsRecViewAdapter extends RecyclerView.Adapter<StudentsRecView
     public int getItemCount() {
         return students.size();
     }
+    /*Method setStudents will be used when setting data and passing data from the storage to Recycler View*/
+    public void setStudents(ArrayList<StudentsContact> students){
+        this.students=students;
+        notifyDataSetChanged();
+    }
 
 
     /*inner class within the StudentsRecViewAdapter which will hold the views */

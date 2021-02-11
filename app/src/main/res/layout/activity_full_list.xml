@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".fullList"
     android:padding="10dp"
-    android:id="@+id/parent">
+    android:id="@+id/parent1">
 
     <!--Add Recycler View-->
     <androidx.recyclerview.widget.RecyclerView

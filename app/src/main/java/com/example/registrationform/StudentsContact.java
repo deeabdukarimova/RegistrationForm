@@ -2,12 +2,12 @@ package com.example.registrationform;
 
 public class StudentsContact {
     /*The Java Class which will show data related to Students*/
-    private  String LastName,name,email,country,gender;
+    private  String lastName,name,email,country,gender;
 
     /*Creating constructors and getters and setters*/
 
     public StudentsContact(String lastName, String name, String email, String country, String gender) {
-        LastName = lastName;
+        this.lastName = lastName;
         this.name = name;
         this.email = email;
         this.country = country;
@@ -15,11 +15,11 @@ public class StudentsContact {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getName() {

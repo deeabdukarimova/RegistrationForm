@@ -1,10 +1,12 @@
 package com.example.registrationform;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.solver.ArrayLinkedVariables;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -17,9 +19,10 @@ import java.util.ArrayList;
 
 public class fullList extends AppCompatActivity {
     /*Initialize views*/
-    private TextView lastName,Name,Email,Country,Gender;
+    private TextView lastName,name,email,country,gender;
     private RecyclerView studentsRecView;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +53,7 @@ public class fullList extends AppCompatActivity {
             }
             for(int i=0;i<data.size();i++){
                 String [] temp=data.get(i).split("\\s+");
-                for(int j=0;j<temp.length;j++){
+                for(int j=0;j<temp.length;j+=5){
                     students.add(new StudentsContact(temp[j],temp[j+1],temp[j+2],temp[j+4],temp[j+3]));
                 }
             }
